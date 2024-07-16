@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    justify-content: center;
+    flex: 1 0 auto;
+    overflow-x: hidden !important;
+
+    &___view-port--width {
+        max-width: 100rem;
+        width: 100rem;
+        overflow-x: hidden !important;
+    }
+}
+  
+.footer {
+    flex-shrink: 0;
+    width: 100%;
+}

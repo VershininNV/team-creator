@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.t-root-content {
+    min-height: 100vh;
+    overflow-x: hidden !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.t-bar_vertical {
+    top: 4.5rem !important;
+}
+
+@for $i from 0 through 100 {
+    .w-#{$i} { width: #{$i}#{"%"} }
+}
+  
+@for $i from 0 through 100 {
+    .h-#{$i} { height: #{$i}#{"%"} }
+}
