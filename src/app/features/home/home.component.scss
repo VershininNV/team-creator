@@ -1,0 +1,41 @@
+.home {
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__teams {
+        width: 50%;
+        padding-right: 0.75rem
+
+        
+    }
+
+    &__emploees {
+        width: 50%;
+        padding-left: 0.75rem;
+    }
+}
+
+@media (max-width: 990px) {
+    .home__container {
+        flex-direction: column;
+    }
+
+    .home__teams {
+        width: 100%;
+        padding-right: 0rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .home__emploees {
+        width:100%;
+        padding-left: 0rem;
+        padding-top: 0.75rem;
+    }
+
+    .tui-island--height {
+        min-height: calc(100vh - 4.5rem - 3rem - 2rem);
+    }
+}

@@ -4,14 +4,21 @@
     flex: 1 0 auto;
     overflow-x: hidden !important;
 
-    &___view-port--width {
+    &__view-port--width {
         max-width: 100rem;
         width: 100rem;
         overflow-x: hidden !important;
+        padding: 1.5rem;
     }
 }
   
 .footer {
     flex-shrink: 0;
     width: 100%;
+}
+
+@media (max-width: 990px) {
+    .content__view-port--width {
+        padding: 1.5rem 3rem;
+    }
 }
