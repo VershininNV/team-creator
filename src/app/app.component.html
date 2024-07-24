@@ -1,4 +1,6 @@
-<tui-root>
+<tui-theme-night *ngIf="!isOnLight"></tui-theme-night>
+
+<tui-root [tuiMode]="themeMode">
   <header>
     <app-header></app-header>
   </header>

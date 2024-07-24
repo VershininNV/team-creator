@@ -1,6 +1,48 @@
 :host {
     min-height: 4.5rem;
     display: flex;
-    background: 
-        gray
-  }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1.5rem;
+    min-height: 4.5rem;
+    box-shadow: var(--tui-shadow-navigation);
+    border-top: 1px solid var(--tui-base-03);
+    background: color-mix(in srgb, var(--tui-base-01), transparent 50%);
+
+    &__time-period {
+        color: var(--tui-text-02);
+    }
+
+    &__founders {
+        display: flex;
+        justify-content: center;
+
+        span {
+            margin-right: 0.25rem;
+            color: var(--tui-text-02);
+        }
+
+        a {
+            color: var(--tui-text-02);
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: var(--tui-text-01);
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    :host {
+        min-height: 3rem;
+    }
+
+    .footer {
+        min-height: 3rem;
+    }
+}

@@ -1,16 +1,54 @@
 :host {
     min-height: 4.5rem;
     display: flex;
-    
 }
 
 .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
+    z-index: 100 !important;
     top: 0;
     right: 0;
     left: 0;
     min-height: 4.5rem;
-    background: 
-        gray;
-    box-shadow: 0rem 0.25rem 2rem rgba(0, 0, 0, 0.05);
+    padding: 0rem 1.5rem;
+    box-shadow: var(--tui-shadow-navigation);
+    border-bottom: 1px solid var(--tui-base-03);
+    backdrop-filter: blur(1.25rem);
+    background: color-mix(in srgb, var(--tui-base-01), transparent 50%);
+
+    &__logo {
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 3rem;
+            margin-right: 0.25rem;
+        }
+
+        span {
+            color: var(--tui-text-01);
+            font: var(--tui-font-heading-5);
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    :host {
+        min-height: 3rem;
+    }
+
+    .navbar {
+        min-height: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar__logo {
+        span {
+            display: none;
+        }
+    }
 }

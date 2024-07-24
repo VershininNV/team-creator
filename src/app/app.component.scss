@@ -5,8 +5,7 @@
     overflow-x: hidden !important;
 
     &__view-port--width {
-        max-width: 100rem;
-        width: 100rem;
+        width: 100%;
         overflow-x: hidden !important;
         padding: 1.5rem;
     }
@@ -15,10 +14,4 @@
 .footer {
     flex-shrink: 0;
     width: 100%;
-}
-
-@media (max-width: 990px) {
-    .content__view-port--width {
-        padding: 1.5rem 3rem;
-    }
 }

@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --header_height: 4.5rem;
+}
+
 .t-root-content {
     min-height: 100vh;
     overflow-x: hidden !important;
@@ -7,7 +11,7 @@
 }
 
 .t-bar_vertical {
-    top: 4.5rem !important;
+    top: 3rem !important;
 }
 
 .tui-island--height {
