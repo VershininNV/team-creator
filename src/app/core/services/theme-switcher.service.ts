@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TuiBrightness } from '@taiga-ui/core';
 
 @Injectable({

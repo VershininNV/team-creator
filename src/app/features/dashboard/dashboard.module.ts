@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core'
-import { HomeRoutingModule } from './home-routing.module'
-import { HomeComponent } from './home.component'
 import { CommonModule } from '@angular/common'
 import { TuiIslandModule } from '@taiga-ui/kit'
+import { DashboardComponent } from './dashboard.component'
+import { DashboardRoutingModule } from './dashboard-routing.module'
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    DashboardComponent,
   ],
   imports: [
     TuiIslandModule,
-    HomeRoutingModule,
+    DashboardRoutingModule,
     CommonModule,
   ],
 })
-export class HomeModule {}
+export class DashboardModule {}
