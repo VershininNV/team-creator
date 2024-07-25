@@ -1,4 +1,4 @@
-.home {
+.dashboard {
     &__container {
         display: flex;
         flex-direction: row;
@@ -7,29 +7,44 @@
 
     &__teams {
         width: 50%;
-        padding-right: 0.75rem
-
-        
+        padding-right: 0.75rem 
     }
 
-    &__emploees {
+    &__employees {
         width: 50%;
         padding-left: 0.75rem;
+    }
+
+    &__employees-container {
+        height: calc(100% - 2rem);
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__teams-container {
+        height: calc(100% - 2rem);
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__divider {
+        width: 100%;
+        border-top: 1px solid var(--tui-base-03);;
     }
 }
 
 @media (max-width: 990px) {
-    .home__container {
+    .dashboard__container {
         flex-direction: column;
     }
 
-    .home__teams {
+    .dashboard__teams {
         width: 100%;
         padding-right: 0rem;
         padding-bottom: 0.75rem;
     }
 
-    .home__emploees {
+    .dashboard__employees {
         width:100%;
         padding-left: 0rem;
         padding-top: 0.75rem;

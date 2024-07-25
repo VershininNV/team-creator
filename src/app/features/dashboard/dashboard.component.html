@@ -1,12 +1,22 @@
-<div class="h-100 home__container">
-  <div class="home__teams">
+<div class="h-100 dashboard__container">
+  <div class="dashboard__teams">
     <tui-island class="tui-island--height">
       <p class="tui-island__category">Команды</p>
+      <div class="dashboard__teams-container">
+        <app-teams></app-teams>
+        <div class="dashboard__divider"></div>
+        <app-teams-statistics></app-teams-statistics>
+      </div>
     </tui-island>
   </div>
-  <div class="home__emploees">
+  <div class="dashboard__employees">
     <tui-island class="tui-island--height">
       <p class="tui-island__category">Сотрудники</p>
+      <div class="dashboard__employees-container">
+        <app-employees></app-employees>
+        <div class="dashboard__divider"></div>
+        <app-employees-statistics></app-employees-statistics>
+      </div>
     </tui-island>
   </div>
 </div>

@@ -18,6 +18,10 @@
     height: calc(100% - 2rem);
 }
 
+.tui-island--width {
+    width: calc(100% - 2rem);
+}
+
 @for $i from 0 through 100 {
     .w-#{$i} { width: #{$i}#{"%"} }
 }

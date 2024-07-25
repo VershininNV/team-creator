@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } fr
 import { AppRoutes } from '@core/constants';
 
 export const signedInGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-  const isUserSignedIn = true
+  const isUserSignedIn = false
   const router = inject(Router)
 
   if(isUserSignedIn) {

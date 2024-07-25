@@ -1,1 +1,72 @@
-<p>sign-in works!</p>
+<div class="h-100 w-100 sign-in__container">
+  <div class="sign-in__content">
+    <tui-island class="tui-island--height tui-island--width">
+      <p class="sign-in__paragraph">Вход в систему</p>
+      <form class="sign-in__form" [formGroup]="signinForm">
+        <div class="sign-in__email">
+          <tui-input class="w-100" [class.sign-in__email-grouped]="(isEmailChecked$ | async)!" formControlName="email" tuiTextfieldSize="l">
+            Введите e-mail:
+            <input autocomplete="off" tuiTextfield type="email" />
+          </tui-input>
+          <ng-container *ngIf="isEmailValidated">
+            <button
+              class="sign-in__check-email"
+              tuiIconButton
+              size="s"
+              shape="rounded"
+              icon="tuiIconArrowRightCircleLarge"
+              (click)="checkEmail()"
+              [showLoader]="(isEmailChecking$ | async)!"
+            ></button>
+          </ng-container>
+        </div>
+        <ng-container *ngIf="(isEmailChecked$ | async)!">
+          <div>
+            <tui-input-password class="sign-in__password" formControlName="password"
+              >Введите пароль:</tui-input-password
+            >
+          </div>
+        </ng-container>
+      </form>
+      <button
+        appearance="primary"
+        tuiButton
+        type="button"
+        class="w-100 tui-space_top-4 tui-space_bottom-4"
+        [disabled]="signinForm.invalid"
+      >
+        Войти
+      </button>
+      <div class="sign-in__alternative-options tui-space_bottom-2">
+        <button
+          appearance="secondary"
+          tuiButton
+          [iconRight]="googleIcon"
+          type="button"
+          class="w-50 sign-in__signin-google"
+        >
+          Войти через
+        </button>
+        <button
+          text
+          appearance="secondary-destructive"
+          tuiButton
+          type="button"
+          class="w-50 sign-in__create-account"
+          (click)="createAccount()"
+        >
+          Создать аккаунт
+        </button>
+      </div>
+      <div class="sign-in__recovery-container">
+        <button class="sign-in__recovery-password" (click)="recoverPassword()">
+          Забыли пароль?
+        </button>
+      </div>
+    </tui-island>
+  </div>
+</div>
+
+<ng-template #googleIcon>
+  <img class="tui-space_left-2" src="/assets/images/icon/google.ico" />
+</ng-template>

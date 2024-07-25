@@ -1,0 +1,91 @@
+.sign-in {
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    &__content {
+        height: 30rem;
+        width: 25rem;
+    }
+
+    &__paragraph {
+        color: var(--tui-text-01);
+        font: var(--tui-font-heading-6);
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    &__form {
+        min-height: 7rem;
+    }
+
+    &__email {
+        display: flex;
+        align-items: center;
+    }
+
+    &__email-grouped {
+        border-bottom-left-radius: unset;
+        border-bottom-right-radius: unset;
+    }
+
+    &__password {
+        opacity: 0;
+        transform: translateY(-100%);
+        animation: animation 0.5s forwards;
+        border-top-left-radius: unset;
+        border-top-right-radius: unset;
+    }
+
+    &__check-email {
+        position: absolute;
+        right: 1.75rem;
+    }
+
+    &__alternative-options {
+        display: flex;
+        justify-content: space-between;        
+    }
+
+    &__signin-google {
+        padding-right: 0.5rem;
+    }
+
+    &__create-account {
+        padding-left: 0.5rem;
+    }
+
+    &__recovery-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__recovery-password {
+        text-decoration: underline;
+        cursor: pointer;
+        border: none;
+        background: none;
+        color: var(--tui-text-02);
+    }
+
+    &__recovery-password:hover {
+        color: var(--tui-text-01);
+    }
+}
+  
+@keyframes animation {
+    0% {transform: translateY(-100%); opacity: 0;}
+    50% {transform: translateY(-75%); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
+
+
+@media (max-width: 380px) {
+    .sign-in__content {
+        height: 30rem;
+        width: 25rem;
+    }  
+}

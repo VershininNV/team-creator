@@ -1,0 +1,14 @@
+:host {
+    flex: 1 0;
+}
+
+.employees {
+    &__container {
+        width: 100%;
+    }
+
+    &__content {
+        height: calc(100% - 1rem);
+        padding-top: 1rem;
+    }
+}
