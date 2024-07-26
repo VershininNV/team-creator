@@ -12,7 +12,7 @@ import { BehaviorSubject, of } from 'rxjs';
   standalone: true,
   imports: [TuiIslandModule, ReactiveFormsModule, TuiInputModule, 
             TuiInputPasswordModule, TuiTextfieldControllerModule, 
-            TuiButtonModule, TuiInputModule, TuiSvgModule, AsyncPipe,
+            TuiButtonModule, TuiSvgModule, AsyncPipe,
             NgIf],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
@@ -63,5 +63,7 @@ export class SignInComponent {
     this.router.navigateByUrl(AppRoutes.SIGN_UP)
   }
 
-  public recoverPassword(): void {}
+  public recoverPassword(): void {
+    this.router.navigateByUrl(AppRoutes.RECOVER_PASSWORD)
+  }
 }

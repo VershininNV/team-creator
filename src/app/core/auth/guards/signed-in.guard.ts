@@ -7,7 +7,9 @@ export const signedInGuard: CanActivateFn = (route: ActivatedRouteSnapshot, stat
   const router = inject(Router)
 
   if(isUserSignedIn) {
-    if(state.url.includes(AppRoutes.SIGN_IN) || state.url.includes(AppRoutes.SIGN_UP)) 
+    if(state.url.includes(AppRoutes.SIGN_IN) || 
+      state.url.includes(AppRoutes.SIGN_UP) || 
+      state.url.includes(AppRoutes.RECOVER_PASSWORD)) 
     {
       router.navigateByUrl(AppRoutes.DASHBOARD)
 

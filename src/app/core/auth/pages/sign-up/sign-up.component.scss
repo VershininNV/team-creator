@@ -7,9 +7,83 @@
     }
 
     &__content {
-        height: 35rem;
+        height: 30rem;
         width: 25rem;
     }
+
+    &__logo{
+        display: flex;
+        justify-content: center;
+
+        img {
+            height: 4rem;
+        }
+    }
+
+    &__paragraph {
+        color: var(--tui-text-01);
+        font: var(--tui-font-heading-6);
+        text-align: center;
+    }
+
+    &__form {
+        min-height: 7rem;
+    }
+
+    &__email {
+        display: flex;
+        align-items: center;
+    }
+
+    &__email-grouped {
+        border-bottom-left-radius: unset;
+        border-bottom-right-radius: unset;
+    }
+
+    &__password {
+        opacity: 0;
+        transform: translateY(-100%);
+        animation: inputPasswordAnimation 0.5s forwards;
+        border-top-left-radius: unset;
+        border-top-right-radius: unset;
+    }
+
+    &__check-email {
+        position: absolute;
+        right: 1.75rem;
+    }
+
+    &__info {
+        opacity: 0;
+        animation: opacityInfoAnimation 1s forwards;
+    }
+
+    &__validators {
+        .sign-up__validator:last-of-type {
+            margin-bottom: 0rem;
+        }
+    }
+
+    &__validator {
+        display: flex;
+        align-items: center;
+
+        span {
+            color: var(--tui-text-02);
+        }
+    }
+}
+
+@keyframes inputPasswordAnimation {
+    0% {transform: translateY(-100%); opacity: 0;}
+    50% {transform: translateY(-75%); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes opacityInfoAnimation {
+    0% { opacity: 0;}
+    50% { opacity: 0;}
+    100% { opacity: 1;}
 }
 
 
