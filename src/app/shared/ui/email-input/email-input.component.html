@@ -1,0 +1,22 @@
+<div class="email-input__container">
+  <tui-primitive-textfield
+    class="email-input__input--width"
+    tuiTextfieldSize="l"
+    [invalid]="isInvalid"
+    [(value)]="inputValue"
+    (valueChange)="changeValue($event)"
+    >{{ inputText }}</tui-primitive-textfield
+  >
+  <ng-container *ngIf="isEmailValidated">
+    <button
+      class="email-input__check-email"
+      tuiIconButton
+      size="s"
+      shape="rounded"
+      icon="tuiIconArrowRightCircleLarge"
+      [disabled]="(isNotEmailChanged$ | async)!"
+      (click)="checkEmail()"
+      [showLoader]="isLoading"
+    ></button>
+  </ng-container>
+</div>

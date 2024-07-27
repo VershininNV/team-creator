@@ -1,72 +1,54 @@
 <div class="h-100 w-100 sign-in__container">
-  <div class="sign-in__content">
-    <tui-island class="tui-island--height tui-island--width">
-      <div class="sign-in__logo">
-        <img src="/assets/images/logotype/logotype.svg" />
-      </div>
-      <p class="sign-in__paragraph">Вход в систему</p>
-      <form class="sign-in__form" [formGroup]="signinForm">
-        <div class="sign-in__email">
-          <tui-input class="w-100" [class.sign-in__email-grouped]="(isEmailChecked$ | async)!" formControlName="email" tuiTextfieldSize="l">
-            Введите e-mail:
-            <input autocomplete="new-password" tuiTextfield type="email" />
-          </tui-input>
-          <ng-container *ngIf="isEmailValidated">
-            <button
-              class="sign-in__check-email"
-              tuiIconButton
-              size="s"
-              shape="rounded"
-              icon="tuiIconArrowRightCircleLarge"
-              (click)="checkEmail()"
-              [showLoader]="(isEmailChecking$ | async)!"
-            ></button>
-          </ng-container>
+  <app-action-card cardLabel="Вход">
+    <form class="sign-in__form" [formGroup]="signinForm">
+      <app-email-input
+        [class.sign-in__email-grouped]="(isEmailChecked$ | async)!"
+        formControlName="email"
+        [isLoading]="(isEmailChecking$ | async)!"
+        (byButtonClick)="checkEmail()"
+      ></app-email-input>
+
+      <ng-container *ngIf="(isEmailChecked$ | async)!">
+        <div class="sign-in__password">
+          <app-password-input formControlName="password"></app-password-input>
         </div>
-        <ng-container *ngIf="(isEmailChecked$ | async)!">
-          <div>
-            <tui-input-password class="sign-in__password" formControlName="password"
-              >Введите пароль:</tui-input-password
-            >
-          </div>
-        </ng-container>
-      </form>
+      </ng-container>
+    </form>
+    <button
+      appearance="primary"
+      tuiButton
+      type="button"
+      class="w-100 tui-space_top-4 tui-space_bottom-4"
+      [disabled]="signinForm.invalid"
+    >
+      Войти
+    </button>
+
+    <div class="sign-in__divider">
+      <hr />
+      <span class="sign-in__divider-text">или</span>
+    </div>
+    <div class="tui-space_bottom-4">
       <button
-        appearance="primary"
+        appearance="secondary"
         tuiButton
+        [iconRight]="googleIcon"
         type="button"
-        class="w-100 tui-space_top-4 tui-space_bottom-4"
-        [disabled]="signinForm.invalid"
+        class="w-100 sign-in__signin-google"
       >
-        Войти
+        Войти через
+      </button>
+    </div>
+    <div class="sign-in__alternative-options">
+      <button class="sign-in__create-account" (click)="createAccount()">
+        Создать аккаунт
       </button>
 
-      <div class="sign-in__divider">
-        <hr/>
-        <span class="sign-in__divider-text">или</span>
-      </div>
-      <div class="tui-space_bottom-4">
-        <button
-          appearance="secondary"
-          tuiButton
-          [iconRight]="googleIcon"
-          type="button"
-          class="w-100 sign-in__signin-google"
-        >
-          Войти через
-        </button>
-      </div>
-      <div class="sign-in__alternative-options">
-        <button class="sign-in__create-account" (click)="createAccount()">
-          Создать аккаунт
-        </button>
-
-        <button class="sign-in__recovery-password" (click)="recoverPassword()">
-          Забыли пароль?
-        </button>
-      </div>
-    </tui-island>
-  </div>
+      <button class="sign-in__recovery-password" (click)="recoverPassword()">
+        Забыли пароль?
+      </button>
+    </div>
+  </app-action-card>
 </div>
 
 <ng-template #googleIcon>

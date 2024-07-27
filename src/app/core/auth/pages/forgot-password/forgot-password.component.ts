@@ -1,15 +1,15 @@
-import { TuiInputModule, TuiIslandModule } from '@taiga-ui/kit';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TuiButtonModule } from '@taiga-ui/core';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
+import { ActionCardComponent, EmailInputComponent } from '@shared/ui';
 
 @Component({
   selector: 'app-recover-password',
   standalone: true,
-  imports: [TuiIslandModule, TuiInputModule, ReactiveFormsModule, 
-            TuiButtonModule, AsyncPipe, NgIf
+  imports: [TuiButtonModule, AsyncPipe, NgIf,
+            ActionCardComponent, EmailInputComponent, ReactiveFormsModule
   ],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.scss',

@@ -3,32 +3,19 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppRoutes } from '@core/constants';
-import { TuiButtonModule, TuiSvgModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
-import { TUI_PASSWORD_TEXTS, TuiInputModule, TuiInputPasswordModule, tuiInputPasswordOptionsProvider, TuiIslandModule } from '@taiga-ui/kit';
+import { ActionCardComponent, EmailInputComponent, PasswordInputComponent } from '@shared/ui';
+import { TuiButtonModule, TuiSvgModule } from '@taiga-ui/core';
 import { BehaviorSubject, of } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [TuiIslandModule, ReactiveFormsModule, TuiInputModule, 
-            TuiInputPasswordModule, TuiTextfieldControllerModule, 
-            TuiButtonModule, TuiSvgModule, AsyncPipe,
-            NgIf],
+  imports: [ReactiveFormsModule, TuiButtonModule, TuiSvgModule,
+            AsyncPipe, NgIf, ActionCardComponent,
+            EmailInputComponent, PasswordInputComponent ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    tuiInputPasswordOptionsProvider({
-        icons: {
-            hide: 'tuiIconLockLarge',
-            show: 'tuiIconUnlockLarge',
-        },
-    }),
-    {
-      provide: TUI_PASSWORD_TEXTS,
-      useValue: of(['']),
-  },
-],
 })
 
 export class SignInComponent { 
@@ -45,11 +32,6 @@ export class SignInComponent {
   public isEmailChecked$ = new BehaviorSubject<boolean>(false)
 
   private router = inject(Router)
-
-
-  public get isEmailValidated(): boolean {
-    return this.signinForm.get('email')?.valid!
-  }
 
   public checkEmail(): void {
     this.isEmailChecking$.next(true)

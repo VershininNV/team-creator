@@ -1,0 +1,29 @@
+.action-card {
+    &__content {
+        height: 30rem;
+        width: 25rem;
+    }
+    
+    &__logo{
+        display: flex;
+        justify-content: center;
+    
+        img {
+            height: 4rem;
+        }
+    }
+    
+    &__paragraph {
+        color: var(--tui-text-01);
+        font: var(--tui-font-heading-6);
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .action-card__content {
+        height: 30rem;
+        width: 25rem;
+    }  
+}
+

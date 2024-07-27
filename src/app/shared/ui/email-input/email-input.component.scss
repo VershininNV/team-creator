@@ -1,0 +1,15 @@
+.email-input {
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__input--width {
+        width: 100%;
+    }
+
+    &__check-email {
+        position: absolute;
+        right: 1.75rem;
+    }
+}
