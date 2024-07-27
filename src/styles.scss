@@ -22,6 +22,10 @@
     width: calc(100% - 2rem);
 }
 
+.rc-anchor  {
+    border-radius: 10px !important;
+}
+
 @for $i from 0 through 100 {
     .w-#{$i} { width: #{$i}#{"%"} }
 }

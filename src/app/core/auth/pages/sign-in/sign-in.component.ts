@@ -64,6 +64,6 @@ export class SignInComponent {
   }
 
   public recoverPassword(): void {
-    this.router.navigateByUrl(AppRoutes.RECOVER_PASSWORD)
+    this.router.navigateByUrl(AppRoutes.FORGOT_PASSWORD)
   }
 }

@@ -10,5 +10,5 @@ import { ThemeSwitchComponent } from '@shared/ui/theme-switch/theme-switch.compo
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
-
+  
 }

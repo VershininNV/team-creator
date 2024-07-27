@@ -30,14 +30,9 @@
         </div>
         <ng-container *ngIf="(isEmailChecked$ | async)!">
           <div class="tui-space_bottom-4">
-            <tui-input
-              class="sign-up__password"
-              formControlName="password"
-              tuiTextfieldSize="l"
+            <tui-input-password class="sign-up__password" formControlName="password"
+              >Введите пароль:</tui-input-password
             >
-              Введите пароль:
-              <input autocomplete="new-password" tuiTextfield type="text" />
-            </tui-input>
           </div>
           <div class="sign-up__info">
             <div class="sign-up__validators tui-space_bottom-4">

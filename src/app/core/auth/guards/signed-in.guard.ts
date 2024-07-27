@@ -9,7 +9,9 @@ export const signedInGuard: CanActivateFn = (route: ActivatedRouteSnapshot, stat
   if(isUserSignedIn) {
     if(state.url.includes(AppRoutes.SIGN_IN) || 
       state.url.includes(AppRoutes.SIGN_UP) || 
-      state.url.includes(AppRoutes.RECOVER_PASSWORD)) 
+      state.url.includes(AppRoutes.FORGOT_PASSWORD) ||
+      state.url.includes(AppRoutes.RESET_PASSWORD)  
+    ) 
     {
       router.navigateByUrl(AppRoutes.DASHBOARD)
 

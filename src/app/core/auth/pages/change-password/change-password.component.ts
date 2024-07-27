@@ -1,23 +1,22 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppRoutes } from '@core/constants';
 import { PasswordValidator } from '@core/models';
-import { TuiButtonModule, TuiHintModule, TuiSvgModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
-import { TUI_PASSWORD_TEXTS, TuiBadgeModule, TuiInputModule, TuiInputPasswordModule, tuiInputPasswordOptionsProvider, TuiIslandModule, TuiStatus } from '@taiga-ui/kit';
-import { BehaviorSubject, of } from 'rxjs';
+import { TuiButtonModule, TuiHintModule, TuiSvgModule } from '@taiga-ui/core';
+import { TUI_PASSWORD_TEXTS, TuiBadgeModule, TuiInputPasswordModule, tuiInputPasswordOptionsProvider, TuiIslandModule, TuiStatus } from '@taiga-ui/kit';
+import { of } from 'rxjs';
 
 @Component({
-  selector: 'app-sign-up',
+  selector: 'app-change-password',
   standalone: true,
-  imports: [TuiIslandModule, ReactiveFormsModule, AsyncPipe,
-            NgIf, TuiButtonModule, TuiInputModule, 
-            TuiTextfieldControllerModule, NgFor, TuiBadgeModule,
-            TuiHintModule, TuiSvgModule, TuiInputPasswordModule
-            ],
-  templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.scss',
+  imports: [TuiIslandModule, TuiInputPasswordModule, ReactiveFormsModule,
+            TuiBadgeModule, TuiSvgModule, NgFor,
+            NgIf, TuiHintModule, TuiButtonModule
+  ],
+  templateUrl: './change-password.component.html',
+  styleUrl: './change-password.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     tuiInputPasswordOptionsProvider({
@@ -32,14 +31,13 @@ import { BehaviorSubject, of } from 'rxjs';
   },
 ],
 })
-export class SignUpComponent {
-  public signupForm = new FormGroup({
-    email: new FormControl('', Validators.compose([
-      Validators.required,
-      Validators.pattern('^([a-zA-Z0-9._-]+)@([a-z]+)\\.([a-z]{2,3})$')
-      
-    ])),
-    password: new FormControl('', [
+
+export class ChangePasswordComponent {
+  public changePasswordForm = new FormGroup({
+    oldPassword: new FormControl('', [
+    Validators.required, 
+    Validators.pattern('(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}')]),
+    newPassword: new FormControl('', [
       Validators.required, 
       Validators.pattern('(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}')])
   })
@@ -49,24 +47,9 @@ export class SignUpComponent {
     { definition: 'цифры', pattern: ['[0-9]']},
     { definition: 'специальные символы', pattern: ['[!@#$%^&*]'], 
       tooltipIcon: 'tuiIconHelpCircle', tooltipText: 'Разрешённые символы: «!», «@», «#», «$», «%», «^», «&», «*»'}
-  ] 
-
-  public isEmailChecking$ = new BehaviorSubject<boolean>(false)
-  public isEmailChecked$ = new BehaviorSubject<boolean>(false)
+  ]
 
   private router = inject(Router)
-
-  public get isEmailValidated(): boolean {
-    return this.signupForm.get('email')?.valid!
-  }
-  
-  public checkEmail(): void {
-    this.isEmailChecking$.next(true)
-    setTimeout(() => {
-      this.isEmailChecking$.next(false)
-      this.isEmailChecked$.next(true)
-    }, 1000)
-  }
 
   public getBadgeIcon(status: TuiStatus): string {
     return status === 'success' ? 'tuiIconCheck' : 'tuiIconClose' 
@@ -77,13 +60,13 @@ export class SignUpComponent {
 
     patterns.forEach((value) => {
       let pattern = new RegExp(value)
-      patternsCheckValues.push(pattern.test(this.signupForm.get('password')?.value!))
+      patternsCheckValues.push(pattern.test(this.changePasswordForm.get('newPassword')?.value!))
     })
 
     return patternsCheckValues.every((value) => value === true) ? 'success' : 'error'
   }
 
-  public registerAccount(): void {
+  public changePassword(): void {
     this.router.navigateByUrl(AppRoutes.SIGN_IN)
   }
 }
